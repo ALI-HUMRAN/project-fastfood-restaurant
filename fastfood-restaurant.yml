@@ -2,13 +2,16 @@ version: '3.8'
 
 services:
   php:
-    image: php:8.2-fpm
+    build:
+      context: ./src
+      dockerfile: Dockerfile
     container_name: fastfood-php
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
     depends_on:
       - mysql
+
 
   webserver:
     image: nginx:alpine
