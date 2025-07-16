@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db = 'fastfood';
+$host = 'mysql';
+$db = getenv("MYSQL_DATABASES_FASTFOOD");
 $user = 'root';
-$pass = 'ALI@3590@ALI';
+$pass = getenv("MYSQL_ROOT_PASSWORD"); 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
