@@ -1,0 +1,24 @@
+name: fastfood_CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: chokuot code 
+        uses: actions/checkout@v3  
+      - name: update && install compos
+        run: |
+          sudo apt-get update 
+          sudo apt-get install docker-compose -y
+      - name: run compos
+        run: |
+          docker compose -f fastfood-restaurant.yml up -d
+        
